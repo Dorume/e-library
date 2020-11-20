@@ -38,18 +38,18 @@
             this.TextBox.Multiline = true;
             this.TextBox.Name = "TextBox";
             this.TextBox.ReadOnly = true;
-            this.TextBox.Size = new System.Drawing.Size(284, 261);
+            this.TextBox.Size = new System.Drawing.Size(1242, 689);
             this.TextBox.TabIndex = 0;
             // 
             // ReaderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(1242, 689);
             this.Controls.Add(this.TextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = global::e_library.Properties.Resources.ReadIcon;
             this.Name = "ReaderForm";
-            this.Text = "ReaderForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,9 +10,18 @@ namespace e_library.Forms
             set => TextBox.ReadOnly = value; 
         }
 
-        public ReaderForm()
+        public string Path { get; }
+
+
+        public ReaderForm(string filename, string path, string text, Form parent)
         {
             InitializeComponent();
+            Text = filename;
+            Path = path;
+            TextBox.Text = text;
+            MdiParent = parent;
+            Dock = DockStyle.Fill;
+           
         }
     }
 }
