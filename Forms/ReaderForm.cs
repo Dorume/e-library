@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace e_library.Forms
 {
     public partial class ReaderForm : Form
     {
+        public bool IsReadOnly { get => TextBox.ReadOnly; set => TextBox.ReadOnly = value; }
+
         public ReaderForm()
         {
             InitializeComponent();
