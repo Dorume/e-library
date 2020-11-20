@@ -30,7 +30,6 @@ namespace e_library
             ActiveReaderForm = readerForm;
         }
 
-        private void CanEditToolStripMenuItem_Click(object sender, EventArgs e) => 
-            ActiveReaderForm.IsReadOnly = CanEditToolStripMenuItem.Checked;
+        private void CanEditToolStripMenuItem_Click(object sender, EventArgs e) => ActiveReaderForm.IsReadOnly = !CanEditToolStripMenuItem.Checked;
     }
 }
