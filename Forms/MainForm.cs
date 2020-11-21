@@ -1,44 +1,37 @@
-﻿using e_library.Forms;
+﻿using e_library.Model;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace e_library
 {
     public partial class MainForm : Form
     {
-        private List<ReaderForm> ReaderForms = new List<ReaderForm>();
-        private int border;
-
         public MainForm()
         {
             InitializeComponent();
+            FormRegistrator.SettingsChanged += RefreshCollectionOFBooks;
         }
 
         private void OpenToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
-            string filename = openFileDialog.FileName;
-            string filetext = System.IO.File.ReadAllText(filename);
-            CreateNewReader(filename, filename, filetext);
+            FormRegistrator.AddForm(openFileDialog, this);
         }
 
-        private void CreateNewReader(string filename, string path, string text)
+        public void RefreshCollectionOFBooks()
         {
-            ReaderForm form = new ReaderForm(filename, path, text, this);
-            ReaderForms.Add(form);
-            form.Show();
+            CollectionBooks.Items.Clear();
+            var books = Properties.Settings.Default.SettingsKey;
+            foreach (var book in books)
+            {
+                CollectionBooks.Items.Add(book.ToString());
+            }
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void MainForm_SizeChanged(object sender, EventArgs e)
-        {
-            border = CollectionBooks.Width;
         }
     }
 }

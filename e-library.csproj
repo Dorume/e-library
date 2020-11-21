@@ -60,6 +60,7 @@
     <Compile Include="Forms\ReaderForm.Designer.cs">
       <DependentUpon>ReaderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FormRegistrator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
@@ -94,9 +95,7 @@
   <ItemGroup>
     <None Include="Resources\Icon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\ReadIcon.ico" />
   </ItemGroup>
