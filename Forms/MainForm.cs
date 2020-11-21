@@ -1,15 +1,26 @@
 ﻿using e_library.Model;
 using e_library.Serialize;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace e_library
 {
     public partial class MainForm : Form
     {
+        public Size MaxSize { get; set; }
+        public Point LeftPoint { get; set; }
+
         public MainForm()
         {
             InitializeComponent();
+            NewMaxSize();
+        }
+
+        private void NewMaxSize()
+        {
+            MaxSize = Border.Size;
+            LeftPoint = PointToClient(Border.Location);
         }
 
         private void OpenToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -49,6 +60,11 @@ namespace e_library
             {
                 CollectionOfFiles.Items.Add(item);
             }
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            NewMaxSize();
         }
     }
 }

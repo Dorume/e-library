@@ -1,6 +1,7 @@
 ﻿using e_library.Forms;
 using e_library.Serialize;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -10,14 +11,16 @@ namespace e_library.Model
     static class Registrator
     {
         private static List<ReaderForm> Forms { get; set; } = new List<ReaderForm>();
-        public static void AddForm(TextFile file, Form sender)
+
+        public static void AddForm(TextFile file, MainForm sender)
         {
             string text = File.ReadAllText(file.Path);
-            ReaderForm form = new ReaderForm(file.Filename, file.Path, text, sender);
+            ReaderForm form = new ReaderForm(file.Filename, text, sender);
             form.Show();
             Forms.Add(form);
         }
 
+        #region Методи збереження
         public static void Save(ListView listView)
         {
             TextFiles files = new TextFiles();
@@ -61,5 +64,6 @@ namespace e_library.Model
                 return (TextFiles)xml.Deserialize(fs);
             };
         }
+        #endregion
     }
 }

@@ -1,27 +1,31 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace e_library.Forms
 {
     public partial class ReaderForm : Form
     {
-        public bool IsReadOnly
-        { 
-            get => TextBox.ReadOnly; 
-            set => TextBox.ReadOnly = value; 
-        }
-
-        public string Path { get; }
-
-
-        public ReaderForm(string filename, string path, string text, Form parent)
+        private readonly MainForm MainParent;
+        public ReaderForm(string filename, string text, MainForm parent)
         {
             InitializeComponent();
             Text = filename;
-            Path = path;
             TextBox.Text = text;
             MdiParent = parent;
-            Dock = DockStyle.Fill;
-           
+            MainParent = parent;
+            MaximumSize = MainParent.MaxSize;
+            parent.SizeChanged += Parent_SizeChanged;
+        }
+
+        private void Parent_SizeChanged(object sender, System.EventArgs e)
+        {
+            MaximumSize = MainParent.MaxSize;
+        }
+
+        private void ReaderForm_Move(object sender, System.EventArgs e)
+        {
+            if (this.Location.X <= MainParent.LeftPoint.X)
+                Location = new Point(MainParent.LeftPoint.X, Location.Y);
         }
     }
 }
