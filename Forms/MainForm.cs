@@ -45,12 +45,10 @@ namespace e_library
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CollectionOfFiles = Registrator.Load();
+            foreach (ListViewItem item in Registrator.Load())
+            {
+                CollectionOfFiles.Items.Add(item);
+            }
         }
     }
 }

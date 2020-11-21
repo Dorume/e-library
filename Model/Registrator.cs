@@ -33,15 +33,14 @@ namespace e_library.Model
         {
             XmlSerializer xml = new XmlSerializer(typeof(TextFiles));
 
-            using (FileStream fs = new FileStream("Files.xml", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream("TextFiles.xml", FileMode.OpenOrCreate))
             {
                 xml.Serialize(fs, files);
             };
         }
 
-        public static ListView Load()
+        public static IEnumerable<ListViewItem> Load()
         {
-            ListView listView = new ListView();
             TextFiles files = DeserializeXML();
             foreach (TextFile file in files.FilesList)
             {
@@ -49,16 +48,15 @@ namespace e_library.Model
                 {
                     Tag = file
                 };
-                listView.Items.Add(item);
+                yield return item;
             }
-            return listView;
         }
 
         private static TextFiles DeserializeXML()
         {
             XmlSerializer xml = new XmlSerializer(typeof(TextFiles));
 
-            using (FileStream fs = new FileStream("Files.xml", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream("TextFiles.xml", FileMode.OpenOrCreate))
             {
                 return (TextFiles)xml.Deserialize(fs);
             };

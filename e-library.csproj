@@ -98,12 +98,12 @@
     <None Include="Resources\Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Files.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\ReadIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ReadIcon.ico" />
+    <Content Include="TextFiles.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
