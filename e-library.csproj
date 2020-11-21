@@ -61,6 +61,8 @@
       <DependentUpon>ReaderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FormRegistrator.cs" />
+    <Compile Include="Model\FilesForSave.cs" />
+    <Compile Include="Model\XmlHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">

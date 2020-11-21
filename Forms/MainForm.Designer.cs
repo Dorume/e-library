@@ -57,9 +57,9 @@
             this.SearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.AboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CollectionBooks = new System.Windows.Forms.ListBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -283,27 +283,29 @@
             this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.AboutProgramToolStripMenuItem.Text = "&О программе...";
             // 
-            // CollectionBooks
-            // 
-            this.CollectionBooks.Dock = System.Windows.Forms.DockStyle.Left;
-            this.CollectionBooks.FormattingEnabled = true;
-            this.CollectionBooks.Location = new System.Drawing.Point(0, 24);
-            this.CollectionBooks.Name = "CollectionBooks";
-            this.CollectionBooks.Size = new System.Drawing.Size(120, 387);
-            this.CollectionBooks.TabIndex = 2;
-            // 
             // openFileDialog
             // 
             this.openFileDialog.DefaultExt = "txt";
             this.openFileDialog.Filter = "Text files(*.txt)|*.txt";
             this.openFileDialog.Title = "Оберіть файл";
             // 
+            // listView1
+            // 
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(0, 24);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 387);
+            this.listView1.TabIndex = 4;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 411);
-            this.Controls.Add(this.CollectionBooks);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = global::e_library.Properties.Resources.Icon;
             this.IsMdiContainer = true;
@@ -311,6 +313,7 @@
             this.MinimumSize = new System.Drawing.Size(260, 60);
             this.Name = "MainForm";
             this.Text = "E-Library";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -346,11 +349,11 @@
         private System.Windows.Forms.ToolStripMenuItem SearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem AboutProgramToolStripMenuItem;
-        private System.Windows.Forms.ListBox CollectionBooks;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem CanEditToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

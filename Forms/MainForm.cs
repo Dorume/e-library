@@ -1,5 +1,6 @@
 ﻿using e_library.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace e_library
@@ -9,7 +10,6 @@ namespace e_library
         public MainForm()
         {
             InitializeComponent();
-            FormRegistrator.SettingsChanged += RefreshCollectionOFBooks;
         }
 
         private void OpenToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -17,21 +17,23 @@ namespace e_library
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             FormRegistrator.AddForm(openFileDialog, this);
+            RefreshCollectionOFBooks();
         }
 
-        public void RefreshCollectionOFBooks()
+        private void RefreshCollectionOFBooks()
         {
             CollectionBooks.Items.Clear();
-            var books = Properties.Settings.Default.SettingsKey;
-            foreach (var book in books)
-            {
-                CollectionBooks.Items.Add(book.ToString());
-            }
+            CollectionBooks.DataSource = FormRegistrator.Filenames;
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormRegistrator.Save();
         }
     }
 }
