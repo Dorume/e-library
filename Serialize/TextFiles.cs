@@ -4,8 +4,8 @@ using System.Collections.Generic;
 namespace e_library.Serialize
 {
     [Serializable]
-    public class Files
+    public class TextFiles
     {
-        public List<File> FilesList { get; set; } = new List<File>;
+        public List<TextFile> FilesList { get; set; } = new List<TextFile>();
     }
 }
