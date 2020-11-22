@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Windows.Forms;
-
-namespace e_library.Serialize
+namespace e_library.Files
 {
     [Serializable]
     public class TextFile
@@ -15,12 +13,6 @@ namespace e_library.Serialize
         {
             Filename = filename;
             Path = path;
-        }
-
-        public TextFile(OpenFileDialog fileDialog)
-        {
-            Path = fileDialog.FileName;
-            Filename = System.IO.Path.GetFileNameWithoutExtension(Path);
         }
     }
 }

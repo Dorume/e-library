@@ -1,7 +1,5 @@
 ﻿using e_library.Model;
-using e_library.Serialize;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace e_library
@@ -12,6 +10,7 @@ namespace e_library
         public MainForm()
         {
             InitializeComponent();
+            MainModel.MainForm = this;
         }
 
         private void OpenToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -26,21 +25,17 @@ namespace e_library
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-        private void CollectionOfFiles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            MainModel.FormClosing();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            MainModel.FormLoad();
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

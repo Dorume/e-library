@@ -1,12 +1,68 @@
-﻿using System;
+﻿using e_library.Files;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
 
 namespace e_library.Model
 {
-    class MainModel
+    internal static class MainModel
     {
+        public static TextFiles History { get; set; }
+        public static MainForm MainForm;
+
+        public delegate void HistoryChanged();
+        public static event HistoryChanged HistoryChangedEvent;
+
+        public static void OpenFile (OpenFileDialog fileDialog)
+        {
+            if (fileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            var file = GetTextFile(fileDialog.FileName);
+            AddToHistory(file);
+            Registrator.AddForm(file, MainForm);
+        }
+
+        public static void FormClosing()
+        {
+            FileHistory.FileHandler = new XMLFileHandler();
+            FileHistory.Save(History);
+        }
+        public static void FormLoad()
+        {
+            FileHistory.FileHandler = new XMLFileHandler();
+            History = FileHistory.Load();
+            HistoryChangedEvent?.Invoke();
+        }
+
+        /// <summary>
+        /// Добавляє елемент в історію
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="path"></param>
+        private static void AddToHistory(TextFile file)
+        {
+            if(!CheckForRepeat(file))
+            {
+                History.FilesList.Add(file);
+                if (History.FilesList.Count > 10)
+                    History.FilesList.RemoveAt(0);
+                HistoryChangedEvent?.Invoke();
+            }
+        }
+
+        private static TextFile GetTextFile(string path)
+        {
+            return new TextFile(Path.GetFileNameWithoutExtension(path), path);
+        }
+        /// <summary>
+        /// Визначає, входить елемент в історію чи ні
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns>повертає true, якщо елемент повторюється</returns>
+        private static bool CheckForRepeat(TextFile file)
+        {
+            return History.FilesList.Contains(file);
+        }
     }
 }

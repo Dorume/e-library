@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace e_library.Serialize
+namespace e_library.Files
 {
     [Serializable]
     public class TextFiles

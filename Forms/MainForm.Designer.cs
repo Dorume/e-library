@@ -45,6 +45,8 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.HelpProvider = new System.Windows.Forms.HelpProvider();
             this.Border = new System.Windows.Forms.Panel();
+            this.последниеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +70,8 @@
             this.SaveToolStripMenuItem,
             this.SaveAsToolStripMenuItem,
             this.toolStripSeparator2,
+            this.последниеФайлыToolStripMenuItem,
+            this.toolStripSeparator1,
             this.ExitToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
@@ -79,7 +83,7 @@
             this.OpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
             this.OpenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OpenToolStripMenuItem.Text = "&Открыть";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
@@ -167,6 +171,17 @@
             this.Border.TabIndex = 6;
             this.Border.Visible = false;
             // 
+            // последниеФайлыToolStripMenuItem
+            // 
+            this.последниеФайлыToolStripMenuItem.Name = "последниеФайлыToolStripMenuItem";
+            this.последниеФайлыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.последниеФайлыToolStripMenuItem.Text = "Последние файлы";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +226,8 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.HelpProvider HelpProvider;
         private System.Windows.Forms.Panel Border;
+        private System.Windows.Forms.ToolStripMenuItem последниеФайлыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
