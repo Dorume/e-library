@@ -23,6 +23,13 @@ namespace e_library.Model
             Registrator.AddForm(file, MainForm);
         }
 
+        public static void OpenFile(string path)
+        {
+            var file = GetTextFileType(path);
+            AddToHistory(file);
+            Registrator.AddForm(file, MainForm);
+        }
+
         public static void FormClosing()
         {
             FileHistory.FileHandler = new XMLFileHandler();
@@ -50,7 +57,18 @@ namespace e_library.Model
                 HistoryChangedEvent?.Invoke();
             }
         }
-
+        public static void RemoveFromHistory(TextFile file)
+        {
+            foreach (TextFile item in History.FilesList)
+            {
+                if (file.Path == item.Path)
+                {
+                    History.FilesList.Remove(item);
+                    HistoryChangedEvent?.Invoke();
+                    return;
+                }       
+            }
+        }
         private static TextFile GetTextFileType(string path)
         {
             return new TextFile(Path.GetFileNameWithoutExtension(path), path);

@@ -23,13 +23,19 @@ namespace e_library
             List<ToolStripMenuItem> menuItems = new List<ToolStripMenuItem>();
             foreach (var item in history.FilesList)
             {
-                menuItems.Add(new ToolStripMenuItem(
-                        item.Filename + " " + item.Path));
+                ToolStripMenuItem menuitem = new ToolStripMenuItem(item.Path);
+                menuitem.Click += HistoryItem_Click;
+                menuItems.Add(menuitem);
             }
             LastFilesToolStripMenuItem.DropDownItems.AddRange(menuItems.ToArray());
         }
 
-        private void OpenToolStripMenuItem_Click(object sender, System.EventArgs e)
+        private void HistoryItem_Click(object sender, EventArgs e)
+        {
+            MainModel.OpenFile(sender.ToString());
+        }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainModel.OpenFile(openFileDialog);
         }

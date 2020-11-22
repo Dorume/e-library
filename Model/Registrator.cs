@@ -14,6 +14,13 @@ namespace e_library.Model
 
         public static void AddForm(TextFile file, MainForm sender)
         {
+            if (!File.Exists(file.Path))
+            {
+                MessageBox.Show("Файл не найден!", "Ошибка", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MainModel.RemoveFromHistory(file);
+                return;
+            }
             string text = File.ReadAllText(file.Path);
             ReaderForm form = new ReaderForm(file.Filename, text, sender);
             form.Show();
