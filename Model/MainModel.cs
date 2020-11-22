@@ -38,7 +38,7 @@ namespace e_library.Model
         public static void FormLoad()
         {
             FileHistory.FileHandler = new XMLFileHandler();
-            History = FileHistory.Load();
+            History = FileHistory.Load() ?? new TextFiles();
             HistoryChangedEvent?.Invoke();
         }
 

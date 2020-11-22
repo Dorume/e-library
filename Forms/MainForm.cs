@@ -19,7 +19,7 @@ namespace e_library
         private void DisplayHistory()
         {
             LastFilesToolStripMenuItem.DropDownItems.Clear();
-            TextFiles history =  MainModel.History;
+            TextFiles history = MainModel.History;
             List<ToolStripMenuItem> menuItems = new List<ToolStripMenuItem>();
             foreach (var item in history.FilesList)
             {
