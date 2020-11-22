@@ -43,7 +43,6 @@
             this.AboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.CollectionOfFiles = new System.Windows.Forms.ListView();
             this.HelpProvider = new System.Windows.Forms.HelpProvider();
             this.Border = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
@@ -152,20 +151,6 @@
             this.openFileDialog.Filter = "Text files(*.txt)|*.txt";
             this.openFileDialog.Title = "Оберіть файл";
             // 
-            // CollectionOfFiles
-            // 
-            this.CollectionOfFiles.Dock = System.Windows.Forms.DockStyle.Left;
-            this.HelpProvider.SetHelpString(this.CollectionOfFiles, "This is a list of recently opened files");
-            this.CollectionOfFiles.HideSelection = false;
-            this.CollectionOfFiles.Location = new System.Drawing.Point(0, 24);
-            this.CollectionOfFiles.Name = "CollectionOfFiles";
-            this.HelpProvider.SetShowHelp(this.CollectionOfFiles, true);
-            this.CollectionOfFiles.Size = new System.Drawing.Size(171, 387);
-            this.CollectionOfFiles.TabIndex = 4;
-            this.CollectionOfFiles.UseCompatibleStateImageBehavior = false;
-            this.CollectionOfFiles.View = System.Windows.Forms.View.List;
-            this.CollectionOfFiles.SelectedIndexChanged += new System.EventHandler(this.CollectionOfFiles_SelectedIndexChanged);
-            // 
             // HelpProvider
             // 
             this.HelpProvider.HelpNamespace = "Help.chm";
@@ -176,9 +161,9 @@
             this.Border.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Border.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Border.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Border.Location = new System.Drawing.Point(171, 24);
+            this.Border.Location = new System.Drawing.Point(0, 24);
             this.Border.Name = "Border";
-            this.Border.Size = new System.Drawing.Size(613, 387);
+            this.Border.Size = new System.Drawing.Size(784, 387);
             this.Border.TabIndex = 6;
             this.Border.Visible = false;
             // 
@@ -188,7 +173,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 411);
             this.Controls.Add(this.Border);
-            this.Controls.Add(this.CollectionOfFiles);
             this.Controls.Add(this.menuStrip1);
             this.HelpButton = true;
             this.Icon = global::e_library.Properties.Resources.Icon;
@@ -225,7 +209,6 @@
         private System.Windows.Forms.ToolStripMenuItem CanEditToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.ListView CollectionOfFiles;
         private System.Windows.Forms.HelpProvider HelpProvider;
         private System.Windows.Forms.Panel Border;
     }
