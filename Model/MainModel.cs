@@ -18,7 +18,7 @@ namespace e_library.Model
         {
             if (fileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
-            var file = GetTextFile(fileDialog.FileName);
+            var file = GetTextFileType(fileDialog.FileName);
             AddToHistory(file);
             Registrator.AddForm(file, MainForm);
         }
@@ -51,7 +51,7 @@ namespace e_library.Model
             }
         }
 
-        private static TextFile GetTextFile(string path)
+        private static TextFile GetTextFileType(string path)
         {
             return new TextFile(Path.GetFileNameWithoutExtension(path), path);
         }
@@ -62,7 +62,12 @@ namespace e_library.Model
         /// <returns>повертає true, якщо елемент повторюється</returns>
         private static bool CheckForRepeat(TextFile file)
         {
-            return History.FilesList.Contains(file);
+            foreach (TextFile item in History.FilesList)
+            {
+                if (file.Path == item.Path)
+                    return true;
+            }
+            return false;
         }
     }
 }

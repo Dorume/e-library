@@ -45,8 +45,9 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.HelpProvider = new System.Windows.Forms.HelpProvider();
             this.Border = new System.Windows.Forms.Panel();
-            this.последниеФайлыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LastFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.fsdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             this.SaveToolStripMenuItem,
             this.SaveAsToolStripMenuItem,
             this.toolStripSeparator2,
-            this.последниеФайлыToolStripMenuItem,
+            this.LastFilesToolStripMenuItem,
             this.toolStripSeparator1,
             this.ExitToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
@@ -90,7 +91,7 @@
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
             // 
             // SaveToolStripMenuItem
             // 
@@ -98,25 +99,25 @@
             this.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
             this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SaveToolStripMenuItem.Text = "&Сохранить";
             // 
             // SaveAsToolStripMenuItem
             // 
             this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
-            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SaveAsToolStripMenuItem.Text = "Сохранить &как";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
             this.ExitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ExitToolStripMenuItem.Text = "Вы&ход";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -132,7 +133,7 @@
             // 
             this.CanEditToolStripMenuItem.CheckOnClick = true;
             this.CanEditToolStripMenuItem.Name = "CanEditToolStripMenuItem";
-            this.CanEditToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.CanEditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CanEditToolStripMenuItem.Text = "Редагування";
             // 
             // ReferencesToolStripMenuItem
@@ -146,7 +147,7 @@
             // AboutProgramToolStripMenuItem
             // 
             this.AboutProgramToolStripMenuItem.Name = "AboutProgramToolStripMenuItem";
-            this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.AboutProgramToolStripMenuItem.Text = "&О программе...";
             // 
             // openFileDialog
@@ -171,11 +172,11 @@
             this.Border.TabIndex = 6;
             this.Border.Visible = false;
             // 
-            // последниеФайлыToolStripMenuItem
+            // LastFilesToolStripMenuItem
             // 
-            this.последниеФайлыToolStripMenuItem.Name = "последниеФайлыToolStripMenuItem";
-            this.последниеФайлыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.последниеФайлыToolStripMenuItem.Text = "Последние файлы";
+            this.LastFilesToolStripMenuItem.Name = "LastFilesToolStripMenuItem";
+            this.LastFilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.LastFilesToolStripMenuItem.Text = "Последние файлы";
             // 
             // toolStripSeparator1
             // 
@@ -226,8 +227,9 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.HelpProvider HelpProvider;
         private System.Windows.Forms.Panel Border;
-        private System.Windows.Forms.ToolStripMenuItem последниеФайлыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LastFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem fsdfToolStripMenuItem;
     }
 }
 

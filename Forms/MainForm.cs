@@ -1,5 +1,7 @@
-﻿using e_library.Model;
+﻿using e_library.Files;
+using e_library.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace e_library
@@ -11,11 +13,25 @@ namespace e_library
         {
             InitializeComponent();
             MainModel.MainForm = this;
+            MainModel.HistoryChangedEvent += DisplayHistory;
+        }
+
+        private void DisplayHistory()
+        {
+            LastFilesToolStripMenuItem.DropDownItems.Clear();
+            TextFiles history =  MainModel.History;
+            List<ToolStripMenuItem> menuItems = new List<ToolStripMenuItem>();
+            foreach (var item in history.FilesList)
+            {
+                menuItems.Add(new ToolStripMenuItem(
+                        item.Filename + " " + item.Path));
+            }
+            LastFilesToolStripMenuItem.DropDownItems.AddRange(menuItems.ToArray());
         }
 
         private void OpenToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-
+            MainModel.OpenFile(openFileDialog);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
