@@ -43,7 +43,7 @@ namespace e_library.Forms
                 if (result == DialogResult.Yes)
                 {
                     NewText = TextBox.Text;
-                    e.Cancel = !Registrator.CloseFormAndSave(this); //Save as
+                    e.Cancel = !Registrator.FormSave(this); //Save as
                 }
                 else if(result == DialogResult.Cancel)
                 {
@@ -66,7 +66,10 @@ namespace e_library.Forms
             if (TextBox.Text != FileText)
             {
                 Text = Filename + "*";
+                NewText = TextBox.Text;
             }
+            else
+                Text = Filename;
         }
 
         public void TextBoxInvokeChange()

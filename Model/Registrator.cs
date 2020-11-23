@@ -41,7 +41,7 @@ namespace e_library.Model
                 FileNotFoundError(file.Filename);
             }
         }
-        public static bool CloseFormAndSave(ReaderForm sender)
+        public static bool FormSave(ReaderForm sender)
         {
             if (sender == null)
                 return false;
@@ -49,6 +49,7 @@ namespace e_library.Model
             if(Streamer.FileExitst(file))
             {
                 Streamer.SaveText(file, sender.NewText);
+                sender.Text = sender.Filename;
                 return true;
             }
             else
@@ -72,7 +73,7 @@ namespace e_library.Model
 
         public static void CurrFormChanged()
         {
-            if (CloseFormAndSave(CurrForm))
+            if (FormSave(CurrForm))
             {
                 CurrForm.FileText = CurrForm.NewText;
                 CurrForm.TextBoxInvokeChange();
