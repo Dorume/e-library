@@ -8,7 +8,6 @@ namespace e_library
 {
     public partial class MainForm : Form
     {
-
         public MainForm()
         {
             InitializeComponent();
@@ -58,6 +57,11 @@ namespace e_library
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void AboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, @"Resources\E-LibraryHelp.chm");
         }
     }
 }
