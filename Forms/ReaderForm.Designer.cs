@@ -40,6 +40,7 @@
             this.TextBox.ReadOnly = true;
             this.TextBox.Size = new System.Drawing.Size(284, 261);
             this.TextBox.TabIndex = 0;
+            this.TextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ReaderForm
             // 

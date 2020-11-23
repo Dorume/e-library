@@ -21,5 +21,10 @@ namespace e_library.Model
         {
             return File.ReadAllText(file.Path);
         }
+
+        public static void SaveText(TextFile file, string newText)
+        {
+            File.WriteAllText(file.Path, newText);
+        }
     }
 }

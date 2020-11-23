@@ -6,16 +6,19 @@ namespace e_library.Forms
 {
     public partial class ReaderForm : Form
     {
-        private readonly string Path;
-        private readonly string FileText;
+        public readonly string Filename;
+        public readonly string Path;
+        public readonly string FileText;
+        public string NewText;
 
         public ReaderForm(string filename, string path, string text, bool checkMode, Form parent)
         {
             InitializeComponent();
+            FileText = text;
             Text = filename;
+            Filename = filename;
             Path = path;
             TextBox.Text = text;
-            FileText = text;
             TextBox.ReadOnly = !checkMode;
             MdiParent = parent;
             Registrator.ModeChangedEvent += ModeChanged;
@@ -36,10 +39,18 @@ namespace e_library.Forms
             if(TextBox.Text != FileText)
             {
                 DialogResult result = DisplayTextChangedDialog();
-                if (result == DialogResult.Cancel)
+                if (result == DialogResult.Yes)
                 {
-                   e.Cancel = true;
-                   return;
+                    NewText = TextBox.Text;
+                    e.Cancel = !Registrator.CloseFormAndSave(this);
+                }
+                else if(result == DialogResult.No)
+                {
+                    return;
+                }else
+                {
+                    e.Cancel = true;
+                    return;
                 }
             }
         }
@@ -48,6 +59,14 @@ namespace e_library.Forms
         {
             return MessageBox.Show($"Зберегти зміни в файлі '{Text}'?", Text,
                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+        }
+
+        private void TextBox_TextChanged(object sender, System.EventArgs e)
+        {
+            if (TextBox.Text != FileText)
+            {
+                Text = Filename + "*";
+            }
         }
     }
 }

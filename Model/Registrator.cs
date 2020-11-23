@@ -40,6 +40,22 @@ namespace e_library.Model
                 FileNotFoundError(file.Filename);
             }
         }
+        public static bool CloseFormAndSave(ReaderForm sender)
+        {
+            TextFile file = new TextFile(sender.Text, sender.Path);
+            if(Streamer.FileExitst(file))
+            {
+                Streamer.SaveText(file, sender.NewText);
+                return true;
+            }
+            else
+            {
+                FileNotFoundError(file.Filename);
+                return false;
+            }
+
+        }
+
 
         public static void CurrFormChanged(ReaderForm sender)
         {
