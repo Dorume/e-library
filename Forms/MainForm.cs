@@ -63,5 +63,10 @@ namespace e_library
         {
             Help.ShowHelp(this, @"Resources\E-LibraryHelp.chm");
         }
+
+        private void CanEditToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            MainModel.CanEditchanged(CanEditToolStripMenuItem.Checked);
+        }
     }
 }

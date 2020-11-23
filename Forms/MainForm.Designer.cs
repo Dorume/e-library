@@ -144,8 +144,9 @@
             // 
             this.CanEditToolStripMenuItem.CheckOnClick = true;
             this.CanEditToolStripMenuItem.Name = "CanEditToolStripMenuItem";
-            this.CanEditToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.CanEditToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CanEditToolStripMenuItem.Text = "Редагування";
+            this.CanEditToolStripMenuItem.CheckedChanged += new System.EventHandler(this.CanEditToolStripMenuItem_CheckedChanged);
             // 
             // ReferencesToolStripMenuItem
             // 
@@ -158,7 +159,7 @@
             // AboutProgramToolStripMenuItem
             // 
             this.AboutProgramToolStripMenuItem.Name = "AboutProgramToolStripMenuItem";
-            this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.AboutProgramToolStripMenuItem.Text = "&О программе...";
             this.AboutProgramToolStripMenuItem.Click += new System.EventHandler(this.AboutProgramToolStripMenuItem_Click);
             // 

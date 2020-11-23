@@ -69,6 +69,12 @@ namespace e_library.Model
                 }       
             }
         }
+
+        public static void CanEditchanged(bool checkBool)
+        {
+            Registrator.EditMode = checkBool;
+        }
+
         private static TextFile GetTextFileType(string path)
         {
             return new TextFile(Path.GetFileNameWithoutExtension(path), path);

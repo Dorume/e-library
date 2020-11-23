@@ -1,10 +1,7 @@
 ﻿using e_library.Files;
 using e_library.Forms;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace e_library.Model
 {
@@ -13,27 +10,44 @@ namespace e_library.Model
         private static List<ReaderForm> Forms { get; set; } = new List<ReaderForm>();
         private static ReaderForm CurrForm;
 
+        public delegate void ModeChanged(bool checkMode);
+        public static event ModeChanged ModeChangedEvent;
+
+
+        private static bool _editMode;
+        public static bool EditMode 
+        { 
+            get => _editMode;
+            set
+            {
+                _editMode = value;
+                ModeChangedEvent?.Invoke(value);
+            }
+        }
+
         public static void AddForm(TextFile file, MainForm sender)
         {
             if (Streamer.FileExitst(file))
             {
-                ReaderForm form = new ReaderForm(file.Filename, Streamer.GetText(file), sender);
+                ReaderForm form = new ReaderForm(file.Filename, file.Path, Streamer.GetText(file), _editMode, sender);
                 form.Show();
                 CurrFormChanged(form);
                 Forms.Add(form);
             }
             else
+            {
+                MainModel.RemoveFromHistory(file);
                 FileNotFoundError(file.Filename);
+            }
         }
 
         public static void CurrFormChanged(ReaderForm sender)
         {
             CurrForm = sender;
         }
-
         private static void FileNotFoundError(string name)
         {
-            MessageBox.Show($"Файл {name} не найден!", "Ошибка",
+            MessageBox.Show($"Файл '{name}' не найден!", "Ошибка",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
