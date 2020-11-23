@@ -43,6 +43,8 @@ namespace e_library.Model
         }
         public static bool CloseFormAndSave(ReaderForm sender)
         {
+            if (sender == null)
+                return false;
             TextFile file = new TextFile(sender.Text, sender.Path);
             if(Streamer.FileExitst(file))
             {
@@ -68,9 +70,15 @@ namespace e_library.Model
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static void SaveChanges()
+        public static void CurrFormChanged()
         {
-            CloseFormAndSave(CurrForm);
+            if (CloseFormAndSave(CurrForm))
+            {
+                CurrForm.FileText = CurrForm.NewText;
+                CurrForm.TextBoxInvokeChange();
+            }
+            else
+                FileNotFoundError(CurrForm.Filename);
         }
     }
 }

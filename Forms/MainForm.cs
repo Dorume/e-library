@@ -71,7 +71,7 @@ namespace e_library
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Registrator.SaveChanges();
+            Registrator.CurrFormChanged();
         }
     }
 }

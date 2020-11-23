@@ -49,6 +49,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.TextBox);
             this.Icon = global::e_library.Properties.Resources.ReadIcon;
+            this.MaximizeBox = false;
             this.Name = "ReaderForm";
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.ReaderForm_Activated);

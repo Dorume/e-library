@@ -1,4 +1,5 @@
 ﻿using e_library.Model;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,7 +9,7 @@ namespace e_library.Forms
     {
         public readonly string Filename;
         public readonly string Path;
-        public readonly string FileText;
+        public string FileText;
         public string NewText;
 
         public ReaderForm(string filename, string path, string text, bool checkMode, Form parent)
@@ -44,15 +45,14 @@ namespace e_library.Forms
                     NewText = TextBox.Text;
                     e.Cancel = !Registrator.CloseFormAndSave(this); //Save as
                 }
-                else if(result == DialogResult.No)
-                {
-                    return;
-                }else
+                else if(result == DialogResult.Cancel)
                 {
                     e.Cancel = true;
                     return;
                 }
             }
+            Registrator.ModeChangedEvent -= this.ModeChanged;
+
         }
 
         private DialogResult DisplayTextChangedDialog()
@@ -67,6 +67,11 @@ namespace e_library.Forms
             {
                 Text = Filename + "*";
             }
+        }
+
+        public void TextBoxInvokeChange()
+        {
+            TextBox.Text = FileText;
         }
     }
 }
