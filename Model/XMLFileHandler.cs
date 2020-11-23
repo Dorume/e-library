@@ -16,16 +16,16 @@ namespace e_library.Model
             try
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(TextFiles));
-                using (Stream fs = File.OpenRead(NameOfFile))
+                using (Stream fs = File.Open(NameOfFile, FileMode.Open))
                 {
-                    XmlReader reader = new XmlTextReader(fs);
                     TextFiles item = (TextFiles)serializer.Deserialize(fs);
                     return item;
                 }
             }
             catch (Exception ex)
             {
-                NewXmlDocument();
+                Console.WriteLine(ex);
+                //NewXmlDocument();
                 return null;
             }
         }
