@@ -1,6 +1,5 @@
 ﻿using e_library.Files;
 using e_library.Forms;
-using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -81,5 +80,8 @@ namespace e_library.Model
             else
                 FileNotFoundError(CurrForm.Filename);
         }
+
+        public static ReaderForm GetCurrentForm => CurrForm;
+        public static TextFile GetCurrentFile => new TextFile(CurrForm.Filename, CurrForm.Path);
     }
 }

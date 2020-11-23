@@ -34,8 +34,6 @@
             this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.LastFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +46,7 @@
             this.HelpProvider = new System.Windows.Forms.HelpProvider();
             this.Border = new System.Windows.Forms.Panel();
             this.fsdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +68,6 @@
             this.OpenToolStripMenuItem,
             this.toolStripSeparator,
             this.SaveToolStripMenuItem,
-            this.SaveAsToolStripMenuItem,
             this.toolStripSeparator2,
             this.LastFilesToolStripMenuItem,
             this.toolStripSeparator1,
@@ -85,7 +83,7 @@
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
             this.OpenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.OpenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.OpenToolStripMenuItem.Text = "&Открыть";
+            this.OpenToolStripMenuItem.Text = "&Відкрити";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // toolStripSeparator
@@ -100,25 +98,14 @@
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
             this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.SaveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.SaveToolStripMenuItem.Text = "&Сохранить";
+            this.SaveToolStripMenuItem.Text = "&Зберегти";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
-            // 
-            // SaveAsToolStripMenuItem
-            // 
-            this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
-            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.SaveAsToolStripMenuItem.Text = "Сохранить &как";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // LastFilesToolStripMenuItem
             // 
             this.LastFilesToolStripMenuItem.Name = "LastFilesToolStripMenuItem";
             this.LastFilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.LastFilesToolStripMenuItem.Text = "Последние файлы";
+            this.LastFilesToolStripMenuItem.Text = "&Останні файли";
             // 
             // toolStripSeparator1
             // 
@@ -130,7 +117,7 @@
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
             this.ExitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ExitToolStripMenuItem.Text = "Вы&ход";
+            this.ExitToolStripMenuItem.Text = "Ви&хід";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // EditToolStripMenuItem
@@ -154,14 +141,15 @@
             this.ReferencesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AboutProgramToolStripMenuItem});
             this.ReferencesToolStripMenuItem.Name = "ReferencesToolStripMenuItem";
-            this.ReferencesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.ReferencesToolStripMenuItem.Text = "Спра&вка";
+            this.ReferencesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.ReferencesToolStripMenuItem.Text = "&Довідка";
             // 
             // AboutProgramToolStripMenuItem
             // 
             this.AboutProgramToolStripMenuItem.Name = "AboutProgramToolStripMenuItem";
-            this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.AboutProgramToolStripMenuItem.Text = "&О программе...";
+            this.AboutProgramToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.AboutProgramToolStripMenuItem.Text = "Д&овідковий посібник";
             this.AboutProgramToolStripMenuItem.Click += new System.EventHandler(this.AboutProgramToolStripMenuItem_Click);
             // 
             // openFileDialog
@@ -190,6 +178,11 @@
             // 
             this.fsdfToolStripMenuItem.Name = "fsdfToolStripMenuItem";
             this.fsdfToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // MainForm
             // 
@@ -224,8 +217,6 @@
         private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem SaveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem SaveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ReferencesToolStripMenuItem;
@@ -238,6 +229,7 @@
         private System.Windows.Forms.ToolStripMenuItem LastFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem fsdfToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

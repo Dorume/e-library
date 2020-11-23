@@ -2,8 +2,6 @@
 using e_library.Model.Interfaces;
 using System;
 using System.IO;
-using System.Xml;
-using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace e_library.Model
@@ -29,12 +27,7 @@ namespace e_library.Model
                 return null;
             }
         }
-        private void NewXmlDocument()
-        {
-            XDocument XmlDoc = new XDocument();
-            XmlDoc.Add(new XElement(NameOfFile));
-            XmlDoc.Save(NameOfFile);
-        }
+
         public void Save(TextFiles textFiles)
         {
             XmlSerializer xml = new XmlSerializer(typeof(TextFiles));

@@ -1,6 +1,4 @@
 ﻿using e_library.Files;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -79,6 +77,7 @@ namespace e_library.Model
         {
             return new TextFile(Path.GetFileNameWithoutExtension(path), path);
         }
+
         /// <summary>
         /// Визначає, входить елемент в історію чи ні
         /// </summary>
