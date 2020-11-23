@@ -68,5 +68,10 @@ namespace e_library
         {
             MainModel.CanEditchanged(CanEditToolStripMenuItem.Checked);
         }
+
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registrator.SaveChanges();
+        }
     }
 }

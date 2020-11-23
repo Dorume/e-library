@@ -42,7 +42,7 @@ namespace e_library.Forms
                 if (result == DialogResult.Yes)
                 {
                     NewText = TextBox.Text;
-                    e.Cancel = !Registrator.CloseFormAndSave(this);
+                    e.Cancel = !Registrator.CloseFormAndSave(this); //Save as
                 }
                 else if(result == DialogResult.No)
                 {

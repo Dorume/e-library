@@ -1,11 +1,7 @@
 ﻿using e_library.Files;
 using e_library.Model.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
@@ -17,15 +13,21 @@ namespace e_library.Model
         public string NameOfFile = "TextFiles.xml";
         public TextFiles Load()
         {
-            XmlSerializer xml = new XmlSerializer(typeof(TextFiles));
-
-            if (File.Exists(NameOfFile))
-                using (FileStream fs = new FileStream(NameOfFile, FileMode.Open))
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(TextFiles));
+                using (Stream fs = File.OpenRead(NameOfFile))
                 {
-                    return (TextFiles)xml.Deserialize(fs);
-                };
-            NewXmlDocument();
-            return null;
+                    XmlReader reader = new XmlTextReader(fs);
+                    TextFiles item = (TextFiles)serializer.Deserialize(fs);
+                    return item;
+                }
+            }
+            catch (Exception ex)
+            {
+                NewXmlDocument();
+                return null;
+            }
         }
         private void NewXmlDocument()
         {

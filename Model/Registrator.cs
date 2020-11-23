@@ -1,5 +1,6 @@
 ﻿using e_library.Files;
 using e_library.Forms;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -65,6 +66,11 @@ namespace e_library.Model
         {
             MessageBox.Show($"Файл '{name}' не найден!", "Ошибка",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void SaveChanges()
+        {
+            CloseFormAndSave(CurrForm);
         }
     }
 }
