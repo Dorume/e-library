@@ -11,13 +11,13 @@ namespace e_library.Model
     static class Registrator
     {
         private static List<ReaderForm> Forms { get; set; } = new List<ReaderForm>();
+        private static ReaderForm CurrForm;
 
         public static void AddForm(TextFile file, MainForm sender)
         {
             if (!File.Exists(file.Path))
             {
-                MessageBox.Show("Файл не найден!", "Ошибка", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 MainModel.RemoveFromHistory(file);
                 return;
             }
@@ -25,6 +25,11 @@ namespace e_library.Model
             ReaderForm form = new ReaderForm(file.Filename, text, sender);
             form.Show();
             Forms.Add(form);
+        }
+
+        public static void CurrFormChanged(ReaderForm sender)
+        {
+            CurrForm = sender;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using e_library.Model;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace e_library.Forms
@@ -14,8 +15,12 @@ namespace e_library.Forms
             MdiParent = parent;
         }
 
+        private void ReaderForm_Activated(object sender, System.EventArgs e)
+        {
+            Registrator.CurrFormChanged(this);
+        }
 
-        private void ReaderForm_Move(object sender, System.EventArgs e)
+        private void ReaderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }

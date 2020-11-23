@@ -50,7 +50,8 @@
             this.Icon = global::e_library.Properties.Resources.ReadIcon;
             this.Name = "ReaderForm";
             this.TopMost = true;
-            this.Move += new System.EventHandler(this.ReaderForm_Move);
+            this.Activated += new System.EventHandler(this.ReaderForm_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReaderForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
