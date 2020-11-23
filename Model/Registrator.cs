@@ -15,21 +15,26 @@ namespace e_library.Model
 
         public static void AddForm(TextFile file, MainForm sender)
         {
-            if (!File.Exists(file.Path))
+            if (Streamer.FileExitst(file))
             {
-
-                MainModel.RemoveFromHistory(file);
-                return;
+                ReaderForm form = new ReaderForm(file.Filename, Streamer.GetText(file), sender);
+                form.Show();
+                CurrFormChanged(form);
+                Forms.Add(form);
             }
-            string text = File.ReadAllText(file.Path);
-            ReaderForm form = new ReaderForm(file.Filename, text, sender);
-            form.Show();
-            Forms.Add(form);
+            else
+                FileNotFoundError(file.Filename);
         }
 
         public static void CurrFormChanged(ReaderForm sender)
         {
             CurrForm = sender;
+        }
+
+        private static void FileNotFoundError(string name)
+        {
+            MessageBox.Show($"Файл {name} не найден!", "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

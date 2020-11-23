@@ -63,11 +63,5 @@ namespace e_library
         {
             Help.ShowHelp(this, @"Resources\E-LibraryHelp.chm");
         }
-
-        public void FileNotFoundError(string name)
-        {
-            MessageBox.Show($"Файл {name} не найден!", "Ошибка",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
     }
 }

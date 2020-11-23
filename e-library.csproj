@@ -64,6 +64,7 @@
     <Compile Include="Model\Interfaces\IFileHandler.cs" />
     <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\Registrator.cs" />
+    <Compile Include="Model\Streamer.cs" />
     <Compile Include="Model\XMLFileHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
